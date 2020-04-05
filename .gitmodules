@@ -1,0 +1,3 @@
+[submodule "kal_python"]
+	path = kal_python
+	url = https://github.com/kokkia/kal_python.git

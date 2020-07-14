@@ -27,8 +27,8 @@ ss = ip.get_ss_model()
 dss = ip.get_dss_model(dt)
 
 #controller = kal.no_controller(0)# no control no life
-controller = kal.LQR_controller(ss,Q,R)
-#controller = kal.servo_controller(ss,QQ,R,dt)
+# controller = kal.LQR_controller(ss,Q,R)
+controller = kal.servo_controller(ss,QQ,R,dt)
 #controller = kal.mpc_controller(dss,Qmpc,R,100)
 
 

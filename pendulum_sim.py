@@ -25,17 +25,17 @@ g = 9.8
 ip = kal.inverted_pendulum_cart_model(M,m,l_bar)
 ss = ip.get_ss_model()
 dss = ip.get_dss_model(dt)
+target = kal.wave(5,0,0,"CONST")
 
 #controller = kal.no_controller(0)# no control no life
 # controller = kal.LQR_controller(ss,Q,R)
 controller = kal.servo_controller(ss,QQ,R,dt)
-#controller = kal.mpc_controller(dss,Qmpc,R,100)
-
+# controller = kal.mpc_controller(dss,Qmpc,R,100)
 
 x0 = np.array([0,0,-0.3,0])
 
 f = kal.inverted_pendulum_cart_function(M,m,l_bar,x0)
-sim = kal.simulator(T,dt,controller,f,x0,False)
+sim = kal.simulator(T,dt,target,controller,f,x0,False)
 
 sim.simulation()
 fig = kal.t_x_plot(4,int(T/dt))
